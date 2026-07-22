@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+
+  ultimate-service:
+    image: ultimate_whisper_service:latest
+    container_name: ultimate_whisper_service
+    restart: always
+    ports:
+      - "5005:5000"
+
+    volumes:
+      - ./custom_app:/app
+      - ./models:/app/models
+      - ./uploads:/app/uploads
+    # 覆盖启动命令，确保有足够长的超时时间
+    command: ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "--timeout", "1800", "app:app"] 
+

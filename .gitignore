@@ -1,0 +1,19 @@
+# Runtime / local env
+venv/
+uploads/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+.env
+
+# Large offline artifacts (not needed for code review)
+docker-images/
+*.tar.gz
+*.tar
+*.pt
+*.bin
+*.safetensors
+
+# Unrelated tooling noise
+.github/
